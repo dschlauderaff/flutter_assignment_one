@@ -12,8 +12,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  var listPosition = 0;
-  var quote;
+  var _listPosition = 0;
   static const _quotes = [
     "Crichton: That’s your plan? Wile E. Coyote would come up with a better plan than that!",
     'Rygel: I like my wives pregnant and my ships cold to the touch. That way my feet stay warm and my slumber is uninterrupted.',
@@ -23,19 +22,18 @@ class _MyAppState extends State<MyApp> {
   ];
 
   _randomGenerator() {
-    Random rnd = new Random();
-    int min = 0;
-    int max = _quotes.length;
-    int next = rnd.nextInt(max);
+    var rnd = new Random();
+    var max = _quotes.length;
+    var next = rnd.nextInt(max);
     return next;
   }
 
   void _quoteHandler() {
-    int next = _randomGenerator();
-    if (listPosition == next) {
+    var next = _randomGenerator();
+    if (_listPosition == next) {
       _quoteHandler();
     } else {
-      setState(() => listPosition = next);
+      setState(() => _listPosition = next);
     }
   }
 
@@ -50,7 +48,7 @@ class _MyAppState extends State<MyApp> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              Quote(_quotes[listPosition]),
+              Quote(_quotes[_listPosition]),
               TextControl(_quoteHandler),
             ],
           ),
