@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_assignment/text_control.dart';
 
 void main() => runApp(MyApp());
 
@@ -51,17 +52,7 @@ class _MyAppState extends State<MyApp> {
                 padding: const EdgeInsets.all(8.0),
                 child: Text(_quotes[listPosition]),
               ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: RaisedButton(
-                  child: Text(
-                    "Change Text",
-                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                    textAlign: TextAlign.center,
-                  ),
-                  onPressed: _quoteHandler,
-                ),
-              )
+              TextControl(_quoteHandler),
             ],
           ),
         ),
