@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_assignment/quote.dart';
 import 'package:flutter_assignment/text_control.dart';
 
 void main() => runApp(MyApp());
@@ -43,15 +44,13 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Assignment App'),
+          title: Text('Farscape Quotes!'),
         ),
         body: Center(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(_quotes[listPosition]),
-              ),
+              Quote(_quotes[listPosition]),
               TextControl(_quoteHandler),
             ],
           ),
